@@ -1,0 +1,33 @@
+name: Deploy React App
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        run: npm ci
+      - name: Run tests
+        run: npm run test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        run: npm ci
+      - name: Run lint
+        run: npm run lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      - name: Set up Node.js
+        run: npm ci
+      - name: Build app
+        run: npm run build
+      - name: Deploy
+        run: echo Deploying
+
